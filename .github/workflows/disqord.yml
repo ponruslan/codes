@@ -5,7 +5,6 @@ on:
            
 jobs:
   send-to-discord:
-#     if: contains( toJson(github.event.issue.labels), 'bug' )
     if: contains(github.event.issue.labels.*.name, 'bug')
     name: "Send To Discord"
     runs-on: "ubuntu-latest"
@@ -18,15 +17,12 @@ jobs:
           # variable_list_external:
           variable_prefix: "%"
           variable_suffix: "%"
+          webhook_name: 'QC team'
+          webhook_avatarurl: 'https://i.imgur.com/D4pkNaA.png'
           message_embed_title: ${{ github.event.issue.title }}
           message_embed_description: ${{ github.event.issue.body }}
           message_embed_titleurl: ${{ github.event.issue.html_url }}
           message_embed_colour: "255,0,0"
-#           message_embed_footertext: 'some footer'
-#           message_embed_footericonurl: 'http://www.google.com'
-          # message_embed_imageurl:
-          # message_embed_thumbnailurl:
-          # message_embed_videourl:
           message_embed_authorname: ${{ github.event.issue.user.login }}
           message_embed_authorurl: ${{ github.event.issue.user.html_url }}
           message_embed_authoravatarurl: ${{ github.event.issue.user.avatar_url }}
