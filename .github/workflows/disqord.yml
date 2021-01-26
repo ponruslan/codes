@@ -13,3 +13,4 @@ jobs:
           username: QC team
           github-token: ${{ secrets.github_token }}
           discord-webhook: ${{ secrets.WEBHOOK_URL }}
+          content: "test content"
