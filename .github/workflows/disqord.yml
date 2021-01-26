@@ -2,12 +2,15 @@ name: disqord
 on:
   issues:
     types: [labeled]
+    
 jobs:
-  message:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Discord Webhook Action
-      uses: tsickert/discord-webhook@v0.0.7
-      with:
-        webhook-url: ${{ secrets.WEBHOOK_URL }}
-        raw-data: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
+      - uses: actions/checkout@v2
+      - name: Discord Webhook Action
+        uses: tsickert/discord-webhook@v2.0.0
+        with:
+          webhook-url: ${{ secrets.WEBHOOK_URL }}
+          raw-data: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
+        
