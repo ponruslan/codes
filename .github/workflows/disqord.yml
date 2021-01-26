@@ -10,6 +10,6 @@ jobs:
       - name: Notify
         uses: nobrayner/discord-webhook@v1
         with:
-          username:  QC team
+          username: QC team
           github-token: ${{ secrets.github_token }}
           discord-webhook: ${{ secrets.WEBHOOK_URL }}
