@@ -20,7 +20,7 @@ jobs:
           message_embed_title: ${{ github.event.issue.title }}
           message_embed_description: 'some description'
           message_embed_titleurl: 'http://www.google.com'
-#           message_embed_colour: '#7289da'
+          message_embed_colour: '#7289da'
 #           message_embed_footertext: 'some footer'
 #           message_embed_footericonurl: 'http://www.google.com'
           # message_embed_imageurl:
