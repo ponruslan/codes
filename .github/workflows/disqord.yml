@@ -16,7 +16,7 @@ jobs:
           # variable_list_external:
           variable_prefix: "%"
           variable_suffix: "%"
-          message_text: "Hello world"
+          message_text: ${{ github.event.issue.id }} ${{ github.event.issue.title }}
 #           message_embed_authorname: ${{ github.event.issue.user.login }}
           # message_embed_authorurl:
           # message_embed_authoravatarurl:
