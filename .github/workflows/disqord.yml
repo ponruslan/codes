@@ -16,7 +16,7 @@ jobs:
           # variable_list_external:
           variable_prefix: "%"
           variable_suffix: "%"
-          message_text: "Hello, world!"
+#           message_text: "Hello, world!"
           message_embed_title: ${{ github.event.issue.title }}
           message_embed_description: 'some description'
           message_embed_titleurl: 'http://www.google.com'
