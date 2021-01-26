@@ -4,15 +4,39 @@ on:
     types: [labeled]
            
 jobs:
-  send-to-discord:
-    if: contains(github.event.issue.labels.*.name, 'bug')
-    name: "Send To Discord"
+  send-to-frontend-discord:
+    if: contains(github.event.issue.labels.*.name, 'frontend')
+    name: "Send To FE Team"
     runs-on: "ubuntu-latest"
     steps:
       - uses: "hugoalh/GitHubAction.SendToDiscord@v2.0.0"
         with:
-          webhook_id: '803554374882033675'
-          webhook_token: 'K4Wfv6fFoH5tOu9dGn_DlrjJ4ETIBnkn1k4GPiK7xq5O-pCuMfP6DU42O8pdj4nE7Bhe'
+          webhook_id: '803632797389946941'
+          webhook_token: 'qyHt5NLTXa9fVYtm9HzzYnHgtCtWv1gbBxM5YDUT5nHjf7tpOCTaa3HG0eHxfS2g0_Km'
+          variable_join: "."
+          # variable_list_external:
+          variable_prefix: "%"
+          variable_suffix: "%"
+          webhook_name: 'QC team'
+          webhook_avatarurl: 'https://i.imgur.com/hxp6wC7.png'
+          message_embed_title: ${{ github.event.issue.title }}
+          message_embed_description: ${{ github.event.issue.body }}
+          message_embed_titleurl: ${{ github.event.issue.html_url }}
+          message_embed_colour: "255,0,0"
+          message_embed_authorname: ${{ github.event.issue.user.login }}
+          message_embed_authorurl: ${{ github.event.issue.user.html_url }}
+          message_embed_authoravatarurl: ${{ github.event.issue.user.avatar_url }}
+          message_usetexttospeech: "false"
+ 
+  send-to-backend-discord:
+    if: contains(github.event.issue.labels.*.name, 'backend')
+    name: "Send To BE Team"
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: "hugoalh/GitHubAction.SendToDiscord@v2.0.0"
+        with:
+          webhook_id: '803633487118598155'
+          webhook_token: 'S0lutGfMYTCF-oc4hRjfVDat43rhfdORIl4EKdm9YaYkiuh5QZe2o0sK2ku44sXjYK9k'
           variable_join: "."
           # variable_list_external:
           variable_prefix: "%"
