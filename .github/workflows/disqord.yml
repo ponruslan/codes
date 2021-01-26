@@ -3,12 +3,11 @@ on:
   issues:
     types: [labeled]
 jobs:
-  build:
+  message:
     runs-on: ubuntu-latest
     steps:
-      - name: Discord Commits
-        uses: Sniddl/discord-commits@v1.2
-        with:
-          webhook: ${{ secrets.WEBHOOK_URL }}
-          message: "Successful commit to **{{ github.context.payload.repository.owner.name }}/{{ github.context.payload.repository.name}}**.\nDiff: {{ github.context.payload.compare }}"
-          embed: '{ "title": "{{ commit.title }}", "description": "{{ commit.description }}", "url": "{{ commit.url }}", "author": { "name": "{{ commit.author.name }} ({{ commit.author.username }})", "icon_url": "https://avatars.io/gravatar/{{ commit.author.email }}"} }'
+    - name: Discord Webhook Action
+      uses: tsickert/discord-webhook@v0.0.7
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL }}
+        raw-data: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
