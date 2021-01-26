@@ -10,4 +10,4 @@ jobs:
       uses: tsickert/discord-webhook@v0.0.7
       with:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
-        content: "Test"
+        content: github.event_name
