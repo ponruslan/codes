@@ -18,7 +18,7 @@ jobs:
           variable_prefix: "%"
           variable_suffix: "%"
           webhook_name: 'QC team'
-          webhook_avatarurl: 'https://i.imgur.com/D4pkNaA.png'
+          webhook_avatarurl: 'https://i.imgur.com/hxp6wC7.png'
           message_embed_title: ${{ github.event.issue.title }}
           message_embed_description: ${{ github.event.issue.body }}
           message_embed_titleurl: ${{ github.event.issue.html_url }}
