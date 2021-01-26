@@ -35,8 +35,8 @@ jobs:
     steps:
       - uses: "hugoalh/GitHubAction.SendToDiscord@v2.0.0"
         with:
-          webhook_id: '803633487118598155'
-          webhook_token: 'S0lutGfMYTCF-oc4hRjfVDat43rhfdORIl4EKdm9YaYkiuh5QZe2o0sK2ku44sXjYK9k'
+          webhook_id: ${{ secrets.DISCORD_WEBHOOK_BACKEND_ID}}
+          webhook_token: ${{ secrets.DISCORD_WEBHOOK_BACKEND_TOKEN}}
           variable_join: "."
           # variable_list_external:
           variable_prefix: "%"
