@@ -5,9 +5,11 @@ on:
 jobs:
   message:
     runs-on: ubuntu-latest
+    env:
+      EVENT_NAME: github.event_name
     steps:
     - name: Discord Webhook Action
       uses: tsickert/discord-webhook@v0.0.7
       with:
         webhook-url: ${{ secrets.WEBHOOK_URL }}
-        content: ${{ github.event_name }}
+        content: ${{ env.EVENT_NAME }}
