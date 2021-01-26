@@ -7,9 +7,8 @@ jobs:
     name: Discord Notification
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: binotaliu/action-discord-notifier@v1
+      - name: Notify
+        uses: nobrayner/discord-webhook@v1
         with:
-          message-title: New Commits Pushed
-          webhook: https://discord.com/api/webhooks/803554374882033675/K4Wfv6fFoH5tOu9dGn_DlrjJ4ETIBnkn1k4GPiK7xq5O-pCuMfP6DU42O8pdj4nE7Bhe
+          github-token: ${{ secrets.github_token }}
+          discord-webhook: https://discord.com/api/webhooks/803554374882033675/K4Wfv6fFoH5tOu9dGn_DlrjJ4ETIBnkn1k4GPiK7xq5O-pCuMfP6DU42O8pdj4nE7Bhe'
