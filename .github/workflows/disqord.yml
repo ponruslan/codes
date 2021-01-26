@@ -4,13 +4,19 @@ on:
     types: [labeled]
            
 jobs:
-  notify:
-    name: Discord Notification
-    runs-on: ubuntu-latest
+  send-to-discord:
+    name: "Send To Discord"
+    runs-on: "ubuntu-latest"
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: binotaliu/action-discord-notifier@v1
+      - uses: "hugoalh/GitHubAction.SendToDiscord@v2.0.0"
         with:
-          message-title: New Commits Pushed
-          webhook: ${{ secrets.WEBHOOK_URL }}
+          webhook_id: 803554374882033675
+          webhook_token: K4Wfv6fFoH5tOu9dGn_DlrjJ4ETIBnkn1k4GPiK7xq5O-pCuMfP6DU42O8pdj4nE7Bhe
+          variable_join: "."
+          # variable_list_external:
+          variable_prefix: "%"
+          variable_suffix: "%"
+          message_text: "Hello, world!"
+          # webhook_name:
+          # webhook_avatarurl:
+          message_usetexttospeech: "false"
