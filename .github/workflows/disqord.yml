@@ -16,7 +16,7 @@ jobs:
           # variable_list_external:
           variable_prefix: "%"
           variable_suffix: "%"
-          message_text: "Hello, world!"
-          webhook_name: ${{ env.GITHUB_ACTOR }}
+          message_text: ${{ env.GITHUB_ACTOR }}"
+#           webhook_name: ${{ env.GITHUB_ACTOR }}
           # webhook_avatarurl:
           message_usetexttospeech: "false"
