@@ -17,6 +17,6 @@ jobs:
           variable_prefix: "%"
           variable_suffix: "%"
           message_text: "Hello, world!"
-          webhook_name: 'name'
+          webhook_name: ${{ github.sender.login }}
           # webhook_avatarurl:
           message_usetexttospeech: "false"
