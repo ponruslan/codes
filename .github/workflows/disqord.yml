@@ -2,15 +2,12 @@ name: disqord
 on:
   issues:
     types: [labeled]
-
 jobs:
-  notify:
-    name: Discord Notification
+  message:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: binotaliu/action-discord-notifier@v1
-        with:
-          message-title: New Commits Pushed
-          webhook: ${{ secrets.WEBHOOK_URL }}
+    - name: Discord Webhook Action
+      uses: tsickert/discord-webhook@v0.0.7
+      with:
+        webhook-url: ${{ secrets.WEBHOOK_URL }}
+        content: "Test"
