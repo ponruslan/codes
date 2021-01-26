@@ -26,6 +26,6 @@ jobs:
           # message_embed_thumbnailurl:
           # message_embed_videourl:
           message_embed_authorname: ${{ github.event.issue.user.login }}
-#           message_embed_authorurl:
-#           message_embed_authoravatarurl:
+          message_embed_authorurl: ${{ github.event.issue.user.url }}
+          message_embed_authoravatarurl: ${{ github.event.issue.user.avatar_url }}
           message_usetexttospeech: "false"
