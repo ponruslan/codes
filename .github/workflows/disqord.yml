@@ -5,7 +5,8 @@ on:
            
 jobs:
   send-to-discord:
-    if: contains( toJson(github.event.issue.labels), 'bug' )
+#     if: contains( toJson(github.event.issue.labels), 'bug' )
+    if: contains(github.event.issue.labels.*.name, 'bug')
     name: "Send To Discord"
     runs-on: "ubuntu-latest"
     steps:
