@@ -2,14 +2,15 @@ name: disqord
 on:
   issues:
     types: [labeled]
+
 jobs:
   notify:
     name: Discord Notification
     runs-on: ubuntu-latest
     steps:
-      - name: Notify
-        uses: nobrayner/discord-webhook@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: binotaliu/action-discord-notifier@v1
         with:
-          discord-webhook: ${{ secrets.WEBHOOK_URL }}
-          username: QC team
-          content: test content
+          message-title: New Commits Pushed
+          webhook: ${{ secrets.WEBHOOK_URL }}
