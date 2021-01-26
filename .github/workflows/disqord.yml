@@ -3,12 +3,13 @@ on:
   issues:
     types: [opened, edited, milestoned]
 jobs:
-  build:
+  notify:
+    name: Discord Notification
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Discord Webhook Action
-        uses: tsickert/discord-webhook@v2.0.0
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: binotaliu/action-discord-notifier@v1
         with:
-          webhook-url: ${{ secrets.WEBHOOK_URL }}
-          raw-data: hi.json
+          message-title: New Commits Pushed
+          webhook: https://discord.com/api/webhooks/803554374882033675/K4Wfv6fFoH5tOu9dGn_DlrjJ4ETIBnkn1k4GPiK7xq5O-pCuMfP6DU42O8pdj4nE7Bhe
